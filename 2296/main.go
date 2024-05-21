@@ -37,7 +37,7 @@ func main() {
 
 	ret := 0
 	
-  // 초기 DP 값 설정
+  	// 초기 DP 값 설정
 	for i := 0; i < n; i++ {
 		dp[i][0] = buildings[i][2]
 		dp[i][1] = buildings[i][2]
@@ -46,12 +46,12 @@ func main() {
 	// DP 테이블 갱신
 	for i := 0; i < n; i++ {
 		for j := 0; j < i; j++ {
-      // 구간 1,3 경우
+      			// 구간 1,3 경우
 			if buildings[j][1] < buildings[i][1] {
 				dp[i][0] = max(dp[i][0], dp[j][0]+buildings[i][2])
 			}
             
-      // 구간 2,4 경우
+      			// 구간 2,4 경우
 			if buildings[j][1] > buildings[i][1] {
 				dp[i][1] = max(dp[i][1], dp[j][1]+buildings[i][2])
 			}
